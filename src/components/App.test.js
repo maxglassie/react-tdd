@@ -31,5 +31,13 @@ it('adds a new gift to `state` when clicking the `add gift` button', () => {
   // we'll get the max id of all the current gifts in the array, and will
   // always get a unique id
   expect(app.state().gifts).toEqual([{ id: 1 }]);
+
+  // need to add a clickable button
 })
+
+it('adds a new gift to the rendered list when clicking the `add gift` button', () => {
+  app.find('.btn-add').simulate('click');
+  // find dom item gift list and then 
+  expect(app.find('.gift-list').children().length).toEqual(2)
+});
 

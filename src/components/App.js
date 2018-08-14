@@ -29,10 +29,21 @@ class App extends Component {
     this.setState({ gifts: gifts })
   }
 
+// for buttons, don't use . because it's added - so, NOT '.gift-list'
+// use map to look at each gift one at a time, and for each gift, return a div
   render() {
     return (
         <div>
           <h2>Gift Giver</h2>
+          <div className='gift-list'>
+            {
+              this.state.gifts.map(gift => {
+                return (
+                  <div key={gift.id}></div>
+                )
+              })
+            }
+          </div>
           <Button className='btn-add' onClick={this.addGift}>Add Gift </Button>
         </div>
     )
@@ -40,3 +51,5 @@ class App extends Component {
 }
 
 export default App; 
+
+// notes, 
